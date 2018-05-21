@@ -7,22 +7,31 @@ function Circle(radius) {
   /  This follows the rule of abstraction which is to hide the details and expose the essentials
   */
 
-  let defaultLocation= { x:0, y:0 }
-  
-  this.getDefaultLocation= () => {
-    return defaultLocation;
-  };
+  let defaultLocation = {
+    x: 0,
+    y: 0
+  }
 
-  this.draw= () => {
+  this.draw = () => {
     console.log('draw')
   }
-  Object.defineProperty( this, 'defaultLocation',{
+  Object.defineProperty(this, 'defaultLocation', {
     get: () => {
       return defaultLocation;
+    },
+    set: (value) => {
+      if (!value || value === undefined || (typeof value != 'object'))  {
+        value = {
+          x: 1,
+          y: 1
+        }
+      }
+      defaultLocation = value;
     }
-  } )
+  })
 }
 
-const circle= new Circle(10)
+const circle = new Circle(10)
+circle.defaultLocation = {x: 5, y: 5 }
 console.log("default loaction of object variable", circle.defaultLocation)
 circle.draw();
