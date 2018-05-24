@@ -33,5 +33,5 @@ function Circle(radius) {
 
 const circle = new Circle(10)
 circle.defaultLocation = {x: 5, y: 5 }
-console.log("default loaction of object variable", circle.defaultLocation)
+console.log("Example using Object.defineProperty() 'get' to display the defaultLoaction property's value, circle is an instance of Cirlce. cirlce.defaultLocation: ", circle.defaultLocation)
 circle.draw();
